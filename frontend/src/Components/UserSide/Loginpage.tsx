@@ -8,12 +8,14 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
+import { setUserAccessTocken,setUserDatails} from "../../Redux-store/redux-slice";
 
 const Loginpage: React.FC = () => {
   const navigate = useNavigate();
   const [error, setError] = useState("");
-
-  // Yup validation schema
+  const dispatch = useDispatch()
+  
   const validationSchema = Yup.object().shape({
     email: Yup.string()
       .email("Invalid email address")
@@ -44,6 +46,7 @@ const Loginpage: React.FC = () => {
 
       if (data.message === "user Login succesfully") {
         toast.success("Login successfully")
+        dispatch(setUserAccessTocken(data.accesstok));
         navigate("/homepage");
       } 
     

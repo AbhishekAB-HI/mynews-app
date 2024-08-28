@@ -33,7 +33,9 @@ import { generateOtp, sendVerifyMail }  from '../utils/mail'
       const userData = req.body;
       let userdata = await this.userService.verifyUser(userData);
       if (userdata) {
-        res.status(200).json({ message: "user Login succesfully" });
+       let refreshtok = userdata.refreshToken;
+       let accesstok = userdata.accessToken;
+        res.status(200).json({ message: "user Login succesfully", accesstok, refreshtok });
       } else {
         throw new Error("No user found");
       }

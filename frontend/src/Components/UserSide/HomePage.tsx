@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoEarthOutline } from "react-icons/io5";
 import logo from "../images/logo.png";
 import { Button } from "@mui/material";
@@ -6,6 +6,7 @@ import logoWeb from '../animations/Animation - 1724244656671.json'
 import { Link } from "react-router-dom";
 import profleimage from '../images/PERSONALPHOTO.jpg'
 import profleimage2 from "../images/AJAY.jpg";
+import { useNavigate } from "react-router-dom";
 
 import {
   FaBell,
@@ -15,9 +16,14 @@ import {
   FaUsers,
 } from "react-icons/fa";
 import Lottie from "lottie-react";
+import { useSelector } from "react-redux";
 
 const HomePage = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+const [searchTerm, setSearchTerm] = useState("");
+
+
+
+
 
   const posts = [
     {

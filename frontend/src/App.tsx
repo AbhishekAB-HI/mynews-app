@@ -14,7 +14,10 @@ import ForgetPassPage from './Components/UserSide/Forgetpasspage';
 import AdminLoginpage from './Components/AdminSide/AdminLogin';
 import AdminHomePage from './Components/AdminSide/Adminhome';
 import { Toaster } from 'react-hot-toast';
-
+import UserPrivateRoute from './ProtectiveRoute/UserPrivetROute';
+import UserLogoutPrivateRoute from './ProtectiveRoute/UserLogoutProtective';
+// import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/js/bootstrap.bundle.min.js";
 // import './index.css'
 
 
@@ -28,13 +31,29 @@ function App() {
         <Toaster position="top-center" />
         <Routes>
           <Route path="/register" element={<Registerpage />} />
-          <Route path="/login" element={<Loginpage />} />
-          <Route path="/verify-otp" element={<Otppage />} />
+          <Route
+            path="/login"
+            element={<UserLogoutPrivateRoute element={<Loginpage />} />}
+          />
+          <Route
+            path="/verify-otp"
+            element={<UserLogoutPrivateRoute element={<Otppage />} />}
+          />
           <Route path="/" element={<HomePage />} />
-          <Route path="/homepage" element={<HomeLoginPage />} />
-          <Route path="/forgetpass" element={<Forgetpassword />} />
-          <Route path="/forgetotp" element={<ForgetOtppage />} />
-          <Route path="/ForgetPassPage" element={<ForgetPassPage />} />
+          <Route
+            path="/homepage"
+            element={<UserPrivateRoute element={<HomeLoginPage />} />}
+          />
+          <Route
+            path="/forgetpass"
+            element={<UserLogoutPrivateRoute element={<Forgetpassword />} />}
+          />
+          <Route
+            path="/forgetotp"
+            element={<UserLogoutPrivateRoute element={<ForgetOtppage />} />}
+  
+          />
+          <Route path="/ForgetPassPage"   element={<UserLogoutPrivateRoute element={<ForgetPassPage />}/>}/>
           <Route path="/Adminlogin" element={<AdminLoginpage />} />
           <Route path="/Adminhome" element={<AdminHomePage />} />
         </Routes>

@@ -53,6 +53,8 @@ import mongoose,{ ObjectId } from "mongoose";
            };
            let accessToken = generateAccessToken(userPayload);
            let refreshToken = generateRefreshToken(userPayload);
+           console.log(accessToken, "accessTocken");
+           console.log(refreshToken, "refreshTocken");
            return { accessToken: accessToken, refreshToken: refreshToken };
          }
      }

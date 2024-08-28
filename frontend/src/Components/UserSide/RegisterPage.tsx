@@ -84,7 +84,7 @@ const Registerpage: React.FC = () => {
   };
 
   return (
-    <div>
+    <div>   
       <Navbar />
       <div className="flex flex-col md:flex-row h-screen">
         <div className="flex-1 bg-purple-700 flex justify-center items-center order-1 md:order-2 p-5 md:p-10">
